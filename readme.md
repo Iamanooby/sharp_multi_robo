@@ -22,6 +22,7 @@ create a new folder called "catkin_explore/src" by executing the following comme
     $ git clone https://github.com/hikashi/TM-RRT_exploration.git
     $ cd ~/catkin_explore
     $ catkin_make
+    $ echo "source /home/chihan/workspace/catkin_explore/devel/setup.bash" >> ~/.bashrc
     
 ## Instruction for Running Simulation
 In console one (for running small map):
