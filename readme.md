@@ -17,12 +17,12 @@ The following libraries are required to install before proceeding to run the cod
 ## Installation Process
 create a new folder called "catkin_explore/src" by executing the following comment:
 
-    $ sudo mkdir -p ~/catkin_explore/src
-    $ cd ~/catkin_explore/src/
-    $ git clone https://github.com/hikashi/TM-RRT_exploration.git
-    $ cd ~/catkin_explore
+    $ sudo mkdir -p ~/workspace/catkin_explore/src
+    $ cd ~/workspace/catkin_explore/src/
+    $ git clone https://github.com/Iamanooby/sharp_multi_robo.git
+    $ cd ~/workspace/catkin_explore
     $ catkin_make
-    $ echo "source /home/chihan/workspace/catkin_explore/devel/setup.bash" >> ~/.bashrc
+    $ echo "source /home/<insert user here>/workspace/catkin_explore/devel/setup.bash" >> ~/.bashrc
 
     Remember to restart terminal before continuing
 
