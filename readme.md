@@ -24,7 +24,7 @@ create a new folder called "catkin_explore/src" by executing the following comme
     $ catkin_make
     $ echo "source /home/<insert user here>/workspace/catkin_explore/devel/setup.bash" >> ~/.bashrc
 
-    Remember to restart terminal before continuing
+Remember to restart terminal before continuing    
 
 ## Instruction for Running Simulation
 In console one (for running small map):
