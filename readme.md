@@ -13,6 +13,10 @@ The following libraries are required to install before proceeding to run the cod
     $ sudo apt-get install python-scikits-learn
     $ sudo apt-get install ros-melodic-teb-local-planner
 
+## Install turtlebot3_msgs
+inside a new workspace folder
+    git clone https://github.com/ROBOTIS-GIT/turtlebot3_msgs
+remember to catkin_make and source the bashrc file
     
 ## Installation Process
 create a new folder called "catkin_explore/src" by executing the following comment:
