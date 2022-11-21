@@ -73,7 +73,7 @@
     </node>
     
 
-    <!-- <node pkg="tmrrt_exploration" type="frontier_opencv_detector.py" name="$(arg first_tb3)_detector" output="screen">
+    <node pkg="tmrrt_exploration" type="frontier_opencv_detector.py" name="$(arg first_tb3)_detector" output="screen">
       <param name="map_topic" value="/$(arg first_tb3)/map"/>
     </node>
 
@@ -83,7 +83,7 @@
 
     <node pkg="tmrrt_exploration" type="frontier_opencv_detector.py" name="$(arg third_tb3)_detector" output="screen">
       <param name="map_topic" value="/$(arg third_tb3)/map"/>
-    </node> -->
+    </node>
 
     <node pkg="tmrrt_exploration" type="filter.py" name="filter" output="screen">
       <param name="map_topic" value="$(arg global_map)"/>
