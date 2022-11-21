@@ -73,6 +73,8 @@
     </node>
     
 
+    <node pkg="tmrrt_exploration" type="frontier_opencv_detector.py" name="detector" output="screen"/>
+
     <node pkg="tmrrt_exploration" type="filter.py" name="filter" output="screen">
       <param name="map_topic" value="$(arg global_map)"/>
       <param name="info_radius" value="$(arg info_radius)"/> 
