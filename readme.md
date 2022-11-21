@@ -38,11 +38,13 @@ In console one (for running big map):
     
      $ roslaunch ros_3d_multitb3 multiple_tb3_house5.launch
 
-In console two:
+In console two (for tmrrt method):
  
      $ roslaunch tmrrt_exploration trio_exploration.launch
      
-     
+ In console two (for opencv method):
+ 
+     $ roslaunch tmrrt_exploration trio_exploration_cv.launch    
      
  
 ## Setting up Simulation for testing
