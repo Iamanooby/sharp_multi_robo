@@ -16,7 +16,7 @@
     <arg name="frequency2" value="20.0"/>
     <arg name="detected_frontier" value="/detected_points"/>
     <arg name="filtered_frontier" value="/filtered_points"/>
-    <arg name="rd_metric" value="18.0"/>
+    <arg name="rd_metric" value="15.0"/>
     <!-- robot name space definition -->
     <arg name="first_tb3"  default="tb3_1"/>
     <arg name="second_tb3" default="tb3_2"/>
@@ -112,6 +112,6 @@
       <param name="plan_service" value="$(arg plan_service)"/>
       <param name="base_link" value="$(arg robot_base_link)"/>
       <param name="move_base_service" value="$(arg move_base_service)"/>
-      <param name="rd_metric" value="$(arg rd_metric)"/>
+      <param name="rp_metric_distance" value="$(arg rd_metric)"/>
     </node>
   </launch>

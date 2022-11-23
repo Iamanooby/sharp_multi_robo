@@ -63,7 +63,7 @@ def node():
 	robot_namelist           = rospy.get_param('~robot_namelist', "robot1")
 	delay_after_assignment   = rospy.get_param('~delay_after_assignment',1.0)
 	invalid_distance         = rospy.get_param('~invalid_distance',1.0)
-	rp_metric_distance       = rospy.get_param('~rp_metric_distance',10.0)
+	rp_metric_distance       = rospy.get_param('~rp_metric_distance',15.0)
 	non_interrupt_time       = rospy.get_param('~non_interrupt_time',1.2)
 	start_delay              = rospy.get_param('~start_delay',1.0)
 	rateHz                   = rospy.get_param('~rate',100)
