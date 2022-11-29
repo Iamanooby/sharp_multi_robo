@@ -267,7 +267,10 @@ def node():
 				if debugFlag1:
 					startTime = time.time()
 				for ip in range(0,len(centroids)):
-					cost=norm(robots_position[ir]-centroids[ip])	
+					# cost=norm(robots_position[ir]-centroids[ip]) #this is your manhatten distance between two points
+					###################my code
+					cost = robots[ir].return_distance_from_end(centroids[ip])
+					######################
 					# if cost <= (rp_metric_distance*1.5):
 					information_gain=infoGain[ip]
 					if ir in nb:
@@ -396,7 +399,7 @@ def node():
 									if cond_history and cond_goal and cond_goalTaken and cond_busyNear:
 										position3, rot3 = robots[xxx].getPosition(quad=True) 
 										########## my own code
-										print('name',robots[xxx].name,'distance',robots[xxx].return_distance_from_end(centroid_record[xxx][winner_id]))
+										# print('name',robots[xxx].name,'distance',robots[xxx].return_distance_from_end(centroid_record[xxx][winner_id]))
 										#################
 										robots[xxx].sendGoal(point=centroid_record[xxx][winner_id], quadData=rot3)
 										robots[xxx].setGoalHistory(centroid_record[xxx][winner_id])	
