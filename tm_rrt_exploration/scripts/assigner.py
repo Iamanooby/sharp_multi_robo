@@ -73,6 +73,7 @@ def node():
 	debugFlag2               = rospy.get_param('~debugFlag2',False)
 	# services for the robot
 	global_frame             = rospy.get_param('~global_frame', 'map')
+	# plan_service             = rospy.get_param('~plan_service', '/move_base/make_plan')
 	plan_service             = rospy.get_param('~plan_service', '/move_base_node/NavfnROS/make_plan')
 	base_link                = rospy.get_param('~base_link', 'base_link')
 	move_base_service        = rospy.get_param('~move_base_service', '/move_base')
@@ -394,6 +395,9 @@ def node():
 									# checking the condition for the goal assignment 
 									if cond_history and cond_goal and cond_goalTaken and cond_busyNear:
 										position3, rot3 = robots[xxx].getPosition(quad=True) 
+										########## my own code
+										print('name',robots[xxx].name,'distance',robots[xxx].return_distance_from_end(centroid_record[xxx][winner_id]))
+										#################
 										robots[xxx].sendGoal(point=centroid_record[xxx][winner_id], quadData=rot3)
 										robots[xxx].setGoalHistory(centroid_record[xxx][winner_id])	
 										robot_assigned_goal[xxx]['lastgoal']   = robot_assigned_goal[xxx]['goal'].copy()

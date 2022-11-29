@@ -45,7 +45,7 @@ class robot:
                 rospy.loginfo('Waiting for the robot transform')
                 (trans, rot) = self.listener.lookupTransform(
                     self.global_frame, self.name+'/'+self.robot_frame, rospy.Time(0.0))
-                # print(self.name+'/'+self.robot_frame)
+                # print("testing_transform", self.name+'/'+self.robot_frame)
                 cond = 1
             except (tf.LookupException, tf.ConnectivityException, tf.ExtrapolationException):
                 rospy.sleep(0.1)
@@ -178,22 +178,53 @@ class robot:
     def getState(self):
         return self.client.get_state()
 
-    def makePlan(self, start, end):
-        self.start.pose.position.x = start[0]
-        self.start.pose.position.y = start[1]
-        self.end.pose.position.x = end[0]
-        self.end.pose.position.y = end[1]
-        start = self.listener.transformPose(self.name+'/map', self.start)
-        end = self.listener.transformPose(self.name+'/map', self.end)
-        plan = self.make_plan(start=start, goal=end, tolerance=0.2)
-        return plan.plan.poses
-    
     def setGoalHistory(self, point):
         self.goal_history.append(point)
 
     def getGoalHistory(self):
         return self.goal_history
-            
+
+    def makePlan(self, start, end):
+
+        self.start.header.seq = 0
+        self.start.header.stamp = rospy.Time(0)
+
+        self.end.header.seq = 0
+        self.end.header.stamp = rospy.Time(0)
+
+        self.start.pose.position.x = start[0]
+        self.start.pose.position.y = start[1]
+        self.end.pose.position.x = end[0]
+        self.end.pose.position.y = end[1]
+        print('start',start[0],start[1], 'end',end[0],end[1])
+        # self.start = self.listener.transformPose(self.name+'/map', self.start)
+        # self.end = self.listener.transformPose(self.name+'/map', self.end)
+
+        req = GetPlan()
+        req.start = self.start
+        req.goal = self.end
+        req.tolerance = .5
+        plan = self.make_plan(req.start, req.goal, req.tolerance)
+
+        # start = self.transformPointToRobotFrame(start)
+        # end = self.transformPointToRobotFrame(end)
+        # plan = self.make_plan(start = start, goal = end, tolerance=0.2)
+        # print('plan',plan)
+        # print ('plan.plan',plan.plan)
+        return plan.plan.poses
+    
+
+
+    def return_distance_from_end(self,end):
+        # end = array([self.position[0]+5,self.position[1]+5])
+        poses = self.makePlan(self.position, end)
+        # print('poses',poses)
+        distance = 0
+        for i in range(1,len(poses)):
+        	first_point = poses[i].pose.position
+        	second_point = poses[i-1].pose.position
+        	distance+=((first_point.x-second_point.x)**2+(first_point.y-second_point.y)**2)**0.5
+        return distance
 # ________________________________________________________________________________
 
 
