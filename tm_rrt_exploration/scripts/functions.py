@@ -196,7 +196,7 @@ class robot:
         self.start.pose.position.y = start[1]
         self.end.pose.position.x = end[0]
         self.end.pose.position.y = end[1]
-        print('start',start[0],start[1], 'end',end[0],end[1])
+        # print('start',start[0],start[1], 'end',end[0],end[1])
         # self.start = self.listener.transformPose(self.name+'/map', self.start)
         # self.end = self.listener.transformPose(self.name+'/map', self.end)
 

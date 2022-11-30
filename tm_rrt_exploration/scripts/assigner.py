@@ -273,15 +273,33 @@ def node():
 					######################
 					# if cost <= (rp_metric_distance*1.5):
 					information_gain=infoGain[ip]
+
+
+
+
+					# if ir in nb:
+					# 	if norm(centroids[ip]-robots_position[ir])<=hysteresis_radius:
+					# 		information_gain*=hysteresis_gain
+
+					# 	if norm(robots_goals[ir]-centroids[ip])<=hysteresis_radius:#information gain is changing for robot busy AND if the new frontier point is on the way
+					# 		information_gain=informationGain(mapData,[centroids[ip][0],centroids[ip][1]],info_radius)*hysteresis_gain
+					# else:
+					# 	if norm(centroids[ip]-robots_position[ir])<=hysteresis_radius:
+					# 		information_gain*=hysteresis_gain
+
+
+					#using cost or rather the actual mapped distance for hysteresis also
+					
 					if ir in nb:
-						if norm(centroids[ip]-robots_position[ir])<=hysteresis_radius:
+						if cost<=hysteresis_radius:
 							information_gain*=hysteresis_gain
 
 						if norm(robots_goals[ir]-centroids[ip])<=hysteresis_radius:
 							information_gain=informationGain(mapData,[centroids[ip][0],centroids[ip][1]],info_radius)*hysteresis_gain
 					else:
-						if norm(centroids[ip]-robots_position[ir])<=hysteresis_radius:
+						if cost<=hysteresis_radius:
 							information_gain*=hysteresis_gain
+
 
 					
 					rp_metric = relativePositionMetric(centroids[ip], ir, robots_goals, rp_metric_distance)
