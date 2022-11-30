@@ -225,6 +225,17 @@ class robot:
         	second_point = poses[i-1].pose.position
         	distance+=((first_point.x-second_point.x)**2+(first_point.y-second_point.y)**2)**0.5
         return distance
+
+    def return_distance_two_points(self,start,end):
+        # end = array([self.position[0]+5,self.position[1]+5])
+        poses = self.makePlan(start, end)
+        # print('poses',poses)
+        distance = 0
+        for i in range(1,len(poses)):
+        	first_point = poses[i].pose.position
+        	second_point = poses[i-1].pose.position
+        	distance+=((first_point.x-second_point.x)**2+(first_point.y-second_point.y)**2)**0.5
+        return distance    
 # ________________________________________________________________________________
 
 
