@@ -1,5 +1,5 @@
 # Temporal Memory-based RRT Exploration (Simulation)
-This directory 
+This mini project is built open the repository here: https://github.com/hikashi/TM-RRT_exploration_Simulation
 
 ## Requirements
 The following code is exectuted in ROS Melodic in Ubuntu 18.04 LTS, Python 2.7
